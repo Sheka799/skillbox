@@ -455,6 +455,7 @@
             </ul>
           </li> -->
         </ul>
+
         <ul class="catalog__pagination pagination">
           <li class="pagination__item">
             <a class="pagination__link pagination__link--arrow pagination__link--disabled"
