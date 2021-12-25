@@ -17,9 +17,8 @@
           <input
             class="colors__radio sr-only"
             type="radio"
-            name="color-1"
             value="#73B6EA"
-            checked=""
+            v-model="color"
           />
           <span class="colors__value" style="background-color: #73b6ea"> </span>
         </label>
@@ -29,8 +28,8 @@
           <input
             class="colors__radio sr-only"
             type="radio"
-            name="color-1"
             value="#8BE000"
+            v-model="color"
           />
           <span class="colors__value" style="background-color: #8be000"> </span>
         </label>
@@ -40,8 +39,8 @@
           <input
             class="colors__radio sr-only"
             type="radio"
-            name="color-1"
             value="#222"
+            v-model="color"
           />
           <span class="colors__value" style="background-color: #222"> </span>
         </label>
@@ -52,6 +51,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      color: '#73B6EA',
+    };
+  },
   props: ['product'],
 };
 </script>
