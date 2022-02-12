@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    colorsId: 1,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 2,
-    colorsId: 3,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 1,
     title: 'Ультразвуковая зубная щётка Playbrush Smart Sonic',
     price: 5660,
@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 3,
-    colorsId: 2,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 2,
     title: 'Смартфон Xiaomi Mi Mix 3 6/128GB',
     price: 21790,
@@ -25,7 +25,7 @@ export default [
   },
   {
     id: 4,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 3,
     title: 'Электроскейт Razor Cruiser',
     price: 24690,
@@ -33,7 +33,7 @@ export default [
   },
   {
     id: 5,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 2,
     title: 'Смартфон Xiaomi Mi A3 4/64GB Android One',
     price: 14960,
@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 6,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 2,
     title: 'Смартфон Xiaomi Redmi 6/128GB',
     price: 8960,
@@ -49,7 +49,7 @@ export default [
   },
   {
     id: 7,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 3,
     title: 'Электрический дрифт-карт Razor Crazy Cart',
     price: 39900,
@@ -57,7 +57,7 @@ export default [
   },
   {
     id: 8,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 3,
     title: 'Гироскутер Razor Hovertrax 2.0',
     price: 34900,
@@ -65,7 +65,7 @@ export default [
   },
   {
     id: 9,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 3,
     title: 'Детский трюковой самокат Razor Grom',
     price: 4990,
@@ -73,7 +73,7 @@ export default [
   },
   {
     id: 10,
-    colorsId: 4,
+    colorsId: ['#73B6EA', '#8BE000', '#222'],
     categoryId: 3,
     title: 'Роллерсёрф Razor RipStik Air Pro',
     price: 6690,

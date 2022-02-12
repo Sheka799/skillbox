@@ -56,7 +56,13 @@ export default {
       }
 
       if (this.filterColorsId) {
-        filteredProducts = filteredProducts.filter((product) => product.colorsId === this.filterColorsId);
+        filteredProducts = filteredProducts.filter((product) => {
+          for (let i = 0; i < product.colorsId.length; i++) {
+            if (product.colorsId[i] == this.filterColorsId) {
+             return product.colorsId[i] === this.filterColorsId;
+            }
+          }
+        });
       }
 
       return filteredProducts;

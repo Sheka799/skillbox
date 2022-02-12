@@ -17,7 +17,7 @@
           <input
             class="colors__radio sr-only"
             type="radio"
-            value="#73B6EA"
+            :value="product.colorsId[0]"
             v-model="color"
           />
           <span class="colors__value" style="background-color: #73b6ea"> </span>
@@ -28,7 +28,7 @@
           <input
             class="colors__radio sr-only"
             type="radio"
-            value="#8BE000"
+            :value="product.colorsId[1]"
             v-model="color"
           />
           <span class="colors__value" style="background-color: #8be000"> </span>
@@ -39,7 +39,7 @@
           <input
             class="colors__radio sr-only"
             type="radio"
-            value="#222"
+            :value="product.colorsId[2]"
             v-model="color"
           />
           <span class="colors__value" style="background-color: #222"> </span>

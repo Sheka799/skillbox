@@ -9,10 +9,22 @@ export default [
   },
   {
     id: 3,
-    color: '#FFF'
+    color: '#939393'
   },
   {
     id: 4,
-    color: '#000'
+    color: '#8BE000'
+  },
+  {
+    id: 5,
+    color: '#FF6B00'
+  },
+  {
+    id: 6,
+    color: '#FFF'
+  },
+  {
+    id: 7,
+    color: '#222'
   }
 ];
