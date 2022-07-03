@@ -1,9 +1,9 @@
 <template>
   <li class="catalog__item">
-    <a class="catalog__pic" href="#">
+    <a class="catalog__pic" href="#" @click.prevent="$emit('gotoPage', 'product', {id: product.id})">
       <img :src="product.image" :alt="product.title" />
     </a>
-
+ 
     <h3 class="catalog__title">
       <a href="#">
         {{ product.title }}
