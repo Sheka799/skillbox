@@ -7,7 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     cartProducts: [
-      {productId: 1, amount: 2}
+      {productId: 1, amount: 3}
     ]
   },
   mutations: {
@@ -22,6 +22,16 @@ export default new Vuex.Store({
           amount
         });
       }
+    },
+    updateCartProductAmount(state, {productId, amount}) {
+      const item = state.cartProducts.find(item => item.productId === productId);
+
+      if (item) {
+        this.amount = amount;
+      }
+    },
+    deleteCartProduct(state, productId) {
+      state.cartProducts = state.cartProducts.filter(item => item.productId !== productId);
     }
   },
   getters: {
@@ -38,7 +48,7 @@ export default new Vuex.Store({
       return getters.cartDetailProducts.reduce((acc, item) => (item.product.price * item.amount) + acc, 0);
     },
 
-    cartAmount(state, getters) {
+    cartAmountAll(state, getters) {
       return getters.cartDetailProducts.reduce((acc, item) => item.amount + acc, 0);
     }
   }
