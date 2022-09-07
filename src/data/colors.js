@@ -25,6 +25,6 @@ export default [
   },
   {
     id: 7,
-    color: '#222'
+    color: '#3d3456'
   }
 ];
