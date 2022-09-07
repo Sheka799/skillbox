@@ -12,37 +12,15 @@
 
     <span class="catalog__price"> {{ product.price | numberFormat }} ₽ </span>
     <ul class="colors colors--black">
-      <li class="colors__item">
+      <li class="colors__item" v-for="productColor in product.colorsId" :key="productColor">
         <label class="colors__label">
           <input
             class="colors__radio sr-only"
             type="radio"
-            :value="product.colorsId[0]"
+            :value="productColor"
             v-model="color"
           />
-          <span class="colors__value" style="background-color: #73b6ea"> </span>
-        </label>
-      </li>
-      <li class="colors__item">
-        <label class="colors__label">
-          <input
-            class="colors__radio sr-only"
-            type="radio"
-            :value="product.colorsId[1]"
-            v-model="color"
-          />
-          <span class="colors__value" style="background-color: #8be000"> </span>
-        </label>
-      </li>
-      <li class="colors__item">
-        <label class="colors__label">
-          <input
-            class="colors__radio sr-only"
-            type="radio"
-            :value="product.colorsId[2]"
-            v-model="color"
-          />
-          <span class="colors__value" style="background-color: #222"> </span>
+          <span class="colors__value" :style="{ background: productColor }"> </span>
         </label>
       </li>
     </ul>

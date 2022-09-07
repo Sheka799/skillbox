@@ -3,10 +3,10 @@
     <div class="content__top">
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="index.html"> Каталог </a>
+          <a class="breadcrumbs__link" href="index.html">Каталог</a>
         </li>
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link"> Корзина </a>
+          <a class="breadcrumbs__link">Корзина</a>
         </li>
       </ul>
 
