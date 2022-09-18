@@ -12,15 +12,14 @@
 
     <span class="catalog__price"> {{ product.price | numberFormat }} ₽ </span>
     <ul class="colors colors--black">
-      <li class="colors__item" v-for="productColor in product.colorsId" :key="productColor">
+      <li class="colors__item" v-for="color in product.colors" :key="color.code">
         <label class="colors__label">
           <input
             class="colors__radio sr-only"
             type="radio"
-            :value="productColor"
-            v-model="color"
+            :value="color.code"
           />
-          <span class="colors__value" :style="{ background: productColor }"> </span>
+          <span class="colors__value" :style="{ background: color.code }"> </span>
         </label>
       </li>
     </ul>
@@ -28,21 +27,16 @@
 </template>
 
 <script>
-import gotoPage from "@/helpers/gotoPage";
-import numberFormat from "@/helpers/numberFormat";
+  import gotoPage from "@/helpers/gotoPage";
+  import numberFormat from "@/helpers/numberFormat";
 
-export default {
-  data() {
-    return {
-      color: '#73B6EA',
-    };
-  },
-  filters: {
-    numberFormat
-  },
-  methods: {
-    gotoPage
-  },
-  props: ['product'],
-};
+  export default {
+    methods: {
+      gotoPage,
+    },
+    filters: {
+      numberFormat
+    },
+    props: ['product'],
+  };
 </script>
