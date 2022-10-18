@@ -13,6 +13,8 @@
         :colors-id.sync="filterColorsId"
       />
       <section class="catalog">
+        <div v-if="productsLoading">Загрузка товаров...</div>
+        <div v-if="productsLoadingFailed">Произошла ошибка при загрузки товаров <button @click.prevent="loadProducts">Попробовать еще раз</button></div>
         <ProductList :products="products" />
         <BasePagination
           v-model="page"
@@ -28,7 +30,8 @@
 import BasePagination from "@/components/BasePagination.vue";
 import ProductList from "@/components/ProductList.vue";
 import ProductFilter from "@/components/ProductFilter.vue";
-import products from "@/data/products";
+import axios from "axios";
+import {API_BASE_URL} from "../config";
 
 export default {
   components: { ProductList, BasePagination, ProductFilter },
@@ -38,52 +41,72 @@ export default {
       filterPriceTo: 0,
       filterCategoryId: 0,
       filterColorsId: 0,
+
       page: 1,
       productsPerPage: 3,
+
+      productsData: null,
+
+      productsLoading: false,
+      productsLoadingFailed: false
     };
   },
   computed: {
-    filteredProducts() {
-      let filteredProducts = products;
-
-      if (this.filterPriceFrom > 0) {
-        filteredProducts = filteredProducts.filter(
-          (product) => product.price > this.filterPriceFrom
-        );
-      }
-
-      if (this.filterPriceTo > 0) {
-        filteredProducts = filteredProducts.filter(
-          (product) => product.price < this.filterPriceTo
-        );
-      }
-
-      if (this.filterCategoryId) {
-        filteredProducts = filteredProducts.filter(
-          (product) => product.categoryId === this.filterCategoryId
-        );
-      }
-
-      if (this.filterColorsId) {
-        filteredProducts = filteredProducts.filter((product) => {
-          for (let i = 0; i < product.colorsId.length; i++) {
-            if (product.colorsId[i] == this.filterColorsId) {
-              return product.colorsId[i] === this.filterColorsId;
-            }
-          }
-        });
-      }
-
-      return filteredProducts;
-    },
     products() {
-      const offset = (this.page - 1) * this.productsPerPage;
-
-      return this.filteredProducts.slice(offset, offset + this.productsPerPage);
+      return this.productsData
+      ? this.productsData.items.map(product => {
+        return {
+          ...product,
+          image: product.image.file.url
+        }
+      })
+      : [];
     },
     countProducts() {
-      return products.length;
+      return this.productsData ? this.productsData.pagination.total : 0;
     },
   },
+  methods: {
+    loadProducts() {
+      this.productsLoading = true;
+      this.productsLoadingFailed = false;
+      clearTimeout(this.loadProductsTimer);
+      this.loadProductsTimer = setTimeout(() => {
+        axios.get(API_BASE_URL + `/api/products`, {
+          params: {
+            page: this.page,
+            limit: this.productsPerPage,
+            categoryId: this.filterCategoryId,
+            minPrice: this.filterPriceFrom,
+            maxPrice: this.filterPriceTo,
+            colorId: this.filterColorsId
+          }
+        })
+        .then(response => this.productsData = response.data)
+        .catch(() => this.productsLoadingFailed = true)
+        .then(() => this.productsLoading = false);
+      }, 3000)
+    },
+  },
+  watch: {
+    page() {
+      this.loadProducts();
+    },
+    filterPriceFrom() {
+      this.loadProducts();
+    },
+    filterPriceTo() {
+      this.loadProducts();
+    },
+    filterCategoryId() {
+      this.loadProducts();
+    },
+    filterColorsId() {
+      this.loadProducts();
+    }
+  },
+  created() {
+    this.loadProducts();
+  }
 };
 </script>
