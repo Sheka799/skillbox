@@ -38,18 +38,18 @@
             <fieldset class="form__block">
               <legend class="form__legend">Цвет:</legend>
               <ul class="colors">
-                <li class="colors__item" v-for="productColor in product.colorsId" :key="productColor">
+                <li class="colors__item" v-for="color in product.colors" :key="color">
                   <label class="colors__label">
                     <input
                       class="colors__radio sr-only"
                       type="radio"
                       name="color-item"
-                      value="blue"
+                      :value="color.code"
                       checked=""
                     />
                     <span
                       class="colors__value"
-                      :style="{ background: productColor }"
+                      :style="{ background: color.code }"
                     >
                     </span>
                   </label>

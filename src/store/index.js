@@ -150,12 +150,12 @@ export default new Vuex.Store({
         .delete(
           API_BASE_URL + "/api/baskets/products",
           {
-            productId: productId
-          },
-          {
             params: {
               userAccessKey: contex.state.userAccessKey,
             },
+            data: {
+              productId
+            }
           }
         )
         .then((response) => {
