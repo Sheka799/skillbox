@@ -40,7 +40,7 @@
                 class="colors__radio sr-only"
                 type="radio"
                 name="color"
-                :value="color.code"
+                :value="color.id"
               />
               <span class="colors__value" :style="{ background: color.code }">
               </span>
