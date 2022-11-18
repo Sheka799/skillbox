@@ -153,8 +153,10 @@
             userAccessKey: this.$store.state.userAccessKey
           }
         })
-        .then(() => {
+        .then(response => {
           this.$store.commit('resetCart');
+          this.$store.commit('updateOrderInfo', response.data);
+          this.$router.push({name: 'orderInfo', params: {id: response.data.id}});
         })
         .catch(error => {
           this.formError = error.response.data.error.request || {};
