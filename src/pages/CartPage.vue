@@ -28,9 +28,9 @@
           </p>
           <p class="cart__price">Итого: <span>{{ totalPrice | numberFormat }} ₽</span></p>
 
-          <button class="cart__button button button--primery" type="submit">
+          <router-link tag="button" v-if="cartAmount > 0" :to="{name: 'order'}" class="cart__button button button--primery" type="submit">
             Оформить заказ
-          </button>
+          </router-link>
         </div>
       </form>
     </section>
