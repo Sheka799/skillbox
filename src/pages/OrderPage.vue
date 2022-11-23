@@ -194,8 +194,6 @@ export default {
       this.formErrorMessage = "";
       this.loadingSubmitForm = true;
 
-      clearTimeout(this.loadSubmitForm);
-      this.loadSubmitForm = setTimeout(() => {
         axios
           .post(
             API_BASE_URL + "/api/orders",
@@ -219,9 +217,8 @@ export default {
           .catch((error) => {
             this.formError = error.response.data.error.request || {};
             this.formErrorMessage = error.response.data.error.message;
+            this.loadingSubmitForm = false;
           })
-          .then(() => this.loadingSubmitForm = true)
-      }, 5000);
     },
   },
 };

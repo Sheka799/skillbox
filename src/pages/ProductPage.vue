@@ -38,7 +38,7 @@
             <fieldset class="form__block">
               <legend class="form__legend">Цвет:</legend>
               <ul class="colors">
-                <li class="colors__item" v-for="color in product.colors" :key="color">
+                <li class="colors__item" v-for="color in product.colors" :key="color.id">
                   <label class="colors__label">
                     <input
                       class="colors__radio sr-only"
