@@ -1,5 +1,5 @@
 <template>
-   <main class="content container">
+   <main v-if="$store.state.orderInfo" class="content container">
     <div class="content__top">
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
@@ -20,7 +20,7 @@
       </ul>
 
       <h1 class="content__title">
-        Заказ оформлен <span>№ 23621</span>
+        Заказ оформлен <span>№ {{ $store.state.orderInfo.id }}</span>
       </h1>
     </div>
 
@@ -78,7 +78,7 @@
 
         <div class="cart__block">
           <ul class="cart__orders">
-            <li class="cart__order" v-for="item in $store.state.orderInfo.basket.items" :key="item.productId" :item="item">
+            <li class="cart__order" v-for="item in $store.state.orderInfo.basket.items" :key="item.productId">
               <h3>{{ item.product.title }}</h3>
               <b>{{ item.product.price }} ₽</b>
               <span>Артикул: {{ item.product.id }}</span>
